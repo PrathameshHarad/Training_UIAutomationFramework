@@ -1,0 +1,57 @@
+# Ignore build output folders from all projects
+**/[Bb]in/
+**/[Oo]bj/
+
+# Ignore user-specific and solution-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.rsuser
+*.vs/
+
+# Ignore build logs and temp files
+*.log
+*.tmp
+*.cache
+
+# Ignore NuGet packages (if not using package restore)
+**/packages/
+*.nupkg
+
+# Ignore Rider and VS Code settings
+.idea/
+.vscode/
+
+# Ignore ReSharper and DotCover
+_ReSharper*/
+*.dotCover
+*.dotTrace
+
+# Ignore test result files
+TestResult.xml
+*.trx
+
+# Ignore database files
+*.mdf
+*.ldf
+*.dbmdl
+
+# Ignore publish folders
+**/publish/
+
+# Ignore Azure artifacts
+.scm/
+
+# Ignore common Windows files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Ignore Git folder config
+.git/
+
+# Ignore project-specific config
+*.vspscc
+*.vssscc
