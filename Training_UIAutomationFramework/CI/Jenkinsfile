@@ -1,6 +1,9 @@
 pipeline {
     agent any
 
+    tools {
+        git 'Default'  // or the name from "Git installations"
+    }
 
 
     stages {
