@@ -14,10 +14,27 @@ pipeline {
             }
         }
 
-        stage('Run UI Tests') {
+        stage('Run Regression Tests') {
             steps {
-                sh 'dotnet test --configuration Release --logger:"trx;LogFileName=test_results.trx"'
+                sh 'dotnet test --configuration Release --filter "Category=Regression" --logger:"trx;LogFileName=regression_results.trx"'
             }
+        }
+
+        stage('Publish Test Results') {
+            steps {
+                junit '**/TestResults/*.trx'
+            }
+        }
+    }
+
+    post {
+        always {
+            archiveArtifacts artifacts: '**/TestResults/*.trx', allowEmptyArchive: true
+        }
+        failure {
+            mail to: 'your-team@example.com',
+                 subject: "Regression Tests Failed: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                 body: "Check Jenkins for details."
         }
     }
 }
