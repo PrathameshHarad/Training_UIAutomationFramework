@@ -5,19 +5,17 @@ pipeline {
         git 'Default'  // or the name from "Git installations"
     }
 
-
     stages {
 
         stage('Verify Git') {
-             steps {
-                sh 'git --version'
+            steps {
+                bat 'git --version'
             }
         }
 
         stage('Restore') {
             steps {
                 bat '"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe" "C:\\Users\\PrathameshBabanHarad\\source\\repos\\Training_UIAutomationFramework\\Training_UIAutomationFramework.sln" /t:Restore'
-'
             }
         }
 
