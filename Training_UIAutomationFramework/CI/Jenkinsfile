@@ -16,19 +16,20 @@ pipeline {
 
         stage('Restore') {
             steps {
-                sh 'dotnet restore'
+                bat '"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe" "C:\\Users\\PrathameshBabanHarad\\source\\repos\\Training_UIAutomationFramework\\Training_UIAutomationFramework.sln" /t:Restore'
+'
             }
         }
 
         stage('Build') {
             steps {
-                sh 'dotnet build --configuration Release'
+                bat '"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe" "C:\\Users\\PrathameshBabanHarad\\source\\repos\\Training_UIAutomationFramework\\Training_UIAutomationFramework.sln" /p:Configuration=Release /p:Platform="Any CPU"'
             }
         }
 
         stage('Run Regression Tests') {
             steps {
-                sh 'dotnet test --configuration Release --filter "Category=Regression" --logger:"trx;LogFileName=regression_results.trx"'
+                bat '"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\Extensions\\TestPlatform\\vstest.console.exe" "C:\\Users\\PrathameshBabanHarad\\source\\repos\\Training_UIAutomationFramework\\Tests\\bin\\Release\\Tests.dll" /Logger:trx'
             }
         }
 
@@ -41,12 +42,8 @@ pipeline {
 
     post {
         always {
-            archiveArtifacts artifacts: '**/TestResults/*.trx', allowEmptyArchive: true
-        }
-        failure {
-            mail to: 'your-team@example.com',
-                 subject: "Regression Tests Failed: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                 body: "Check Jenkins for details."
+            // Publish test results
+            junit '**/*.trx'
         }
     }
 }
