@@ -27,7 +27,7 @@ pipeline {
 
         stage('Run Regression Tests') {
             steps {
-                bat '"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\Extensions\\TestPlatform\\vstest.console.exe" "C:\\Users\\PrathameshBabanHarad\\source\\repos\\Training_UIAutomationFramework\\Tests\\bin\\Release\\Tests.dll" /Logger:trx'
+                bat '"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\Extensions\\TestPlatform\\vstest.console.exe" "C:\\Users\\PrathameshBabanHarad\\source\\repos\\Training_UIAutomationFramework\\Training_UIAutomationFramework\\bin\\Release\\Training_UIAutomationFramework.dll" /Logger:trx /ResultsDirectory:"C:\\Users\\PrathameshBabanHarad\\TestResults"'
             }
         }
 
