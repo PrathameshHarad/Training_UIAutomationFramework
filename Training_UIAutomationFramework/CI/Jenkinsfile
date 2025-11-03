@@ -30,18 +30,5 @@ pipeline {
                 bat '"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\Extensions\\TestPlatform\\vstest.console.exe" "C:\\Users\\PrathameshBabanHarad\\source\\repos\\Training_UIAutomationFramework\\Training_UIAutomationFramework\\bin\\Release\\Training_UIAutomationFramework.dll" /Logger:trx'
             }
         }
-
-        stage('Publish Test Results') {
-            steps {
-                junit '**/TestResults/*.trx'
-            }
-        }
-    }
-
-    post {
-        always {
-            // Publish test results
-            junit '**/*.trx'
-        }
     }
 }
