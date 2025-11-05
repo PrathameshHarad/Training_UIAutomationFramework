@@ -27,6 +27,7 @@ namespace Training_UIAutomationFramework
         {
             Logger.Info($"Entering username {username}.");
             loginPage.EnterUsernameField(username);
+            ScreenshotUtil.TakeScreenshot(driver, "UsernameField");
         }
 
         [Given("I enter password as (.*)")]
