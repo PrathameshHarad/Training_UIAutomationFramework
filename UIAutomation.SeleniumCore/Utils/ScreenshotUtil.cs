@@ -10,7 +10,7 @@ namespace UIAutomation.SeleniumCore.Utils
 {
     public class ScreenshotUtil
     {
-        public static void TakeScreenshot(IWebDriver driver, string screenshotName)
+        public static string TakeScreenshot(IWebDriver driver, string screenshotName)
         {
             ITakesScreenshot ts = (ITakesScreenshot)driver;
             Screenshot screenshot = ts.GetScreenshot();
@@ -26,6 +26,7 @@ namespace UIAutomation.SeleniumCore.Utils
 
             screenshot.SaveAsFile(filePath);
             Console.WriteLine("Screenshot saved at: " + filePath);
+            return filePath;
         }
     }
 }
