@@ -4,6 +4,7 @@ using OpenQA.Selenium;
 using Reqnroll;
 using System;
 using System.IO;
+using UIAutomation.SeleniumCore.Utils;
 using UIAutomationApplicationLayer.Pages;
 
 namespace Training_UIAutomationFramework
@@ -12,7 +13,6 @@ namespace Training_UIAutomationFramework
     public class GithubLoginStepDefinitions
     {
         private readonly IWebDriver driver;
-        private static readonly ILog log = LogManager.GetLogger(typeof(GithubLoginStepDefinitions));
         private readonly LoginPage loginPage;
         private readonly ProductsPage productsPage;
 
@@ -27,21 +27,21 @@ namespace Training_UIAutomationFramework
         [Given("I enter username as (.*)")]
         public void WhenIEnterUsernameAs(string username)
         {
-            log.Info($"Entering username {username}.");
+            Logger.Info($"Entering username {username}.");
             loginPage.EnterUsernameField(username);
         }
 
         [Given("I enter password as (.*)")]
         public void WhenIEnterPasswordAs(string password)
         {
-            log.Info($"Entering password {password}.");
+            Logger.Info($"Entering password {password}.");
             loginPage.EnterPasswordField(password);
         }
 
         [When("I click login")]
         public void WhenIClickLogin()
         {
-            log.Info("Clicking on Login button.");
+            Logger.Info("Clicking on Login button.");
             loginPage.ClickLoginButton();
         }
 
