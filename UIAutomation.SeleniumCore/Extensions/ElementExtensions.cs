@@ -33,6 +33,11 @@ namespace UIAutomationApplicationLayer.Actions
             element.Click();
         }
 
+        public static string GetText(this IWebElement element)
+        {
+            return element.Text;
+        }
+
         public static bool IsDisplayed(this IWebElement element)
         {
            return  element.Displayed;

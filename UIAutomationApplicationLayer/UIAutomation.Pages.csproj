@@ -180,6 +180,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pages\BasePage.cs" />
+    <Compile Include="Pages\CartPage.cs" />
+    <Compile Include="Pages\CheckoutPage.cs" />
     <Compile Include="Pages\LoginPage.cs" />
     <Compile Include="Pages\ProductsPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

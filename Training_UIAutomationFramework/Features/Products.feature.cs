@@ -109,10 +109,10 @@ namespace Training_UIAutomationFramework.Features
         }
         
         [global::NUnit.Framework.TestAttribute()]
-        [global::NUnit.Framework.DescriptionAttribute("Sort Products Price Low To High")]
+        [global::NUnit.Framework.DescriptionAttribute("Verify Cart and Checkout Price Matches Inventory Price")]
         [global::NUnit.Framework.CategoryAttribute("products")]
-        [global::NUnit.Framework.TestCaseAttribute("standard_user", "secret_sauce", "Price (low to high)", "0", null)]
-        public async global::System.Threading.Tasks.Task SortProductsPriceLowToHigh(string username, string password, string sortBy, string @__pickleIndex, string[] exampleTags)
+        [global::NUnit.Framework.TestCaseAttribute("standard_user", "secret_sauce", "Prathamesh", "Harad", "421401", "0", null)]
+        public async global::System.Threading.Tasks.Task VerifyCartAndCheckoutPriceMatchesInventoryPrice(string username, string password, string firstName, string lastName, string postalCode, string @__pickleIndex, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "products"};
@@ -124,9 +124,11 @@ namespace Training_UIAutomationFramework.Features
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("username", username);
             argumentsOfScenario.Add("password", password);
-            argumentsOfScenario.Add("sortBy", sortBy);
+            argumentsOfScenario.Add("firstName", firstName);
+            argumentsOfScenario.Add("lastName", lastName);
+            argumentsOfScenario.Add("postalCode", postalCode);
             string pickleIndex = @__pickleIndex;
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Sort Products Price Low To High", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Verify Cart and Checkout Price Matches Inventory Price", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
 #line 6
@@ -143,10 +145,26 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
  await testRunner.GivenAsync(string.Format("I log in to website using username as {0} and password as {1}", username, password), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 8
- await testRunner.WhenAsync(string.Format("I filter price as low to high as {0}", sortBy), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+ await testRunner.WhenAsync("select Sauce labs backpack from inventory", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 9
- await testRunner.ThenAsync("I results should be sorted to price low to high", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+ await testRunner.AndAsync("navigate to cart page", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 10
+ await testRunner.ThenAsync("verify saucelabs backpack price", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+#line 11
+ await testRunner.WhenAsync("navigate to checkout page", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 12
+ await testRunner.AndAsync(string.Format("fill the address details firstname as {0} lastname as {1} postalcode as {2} and c" +
+                            "ontinue to next", firstName, lastName, postalCode), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 13
+ await testRunner.ThenAsync("verify sacucelabs packpack item and price", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+#line 14
+ await testRunner.AndAsync("finish the order", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

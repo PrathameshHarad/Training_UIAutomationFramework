@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace UIAutomation.SeleniumCore.Actions
 {
-    public static class AlertActions
+    public static class AlertExtentions
     {
         public static void AcceptAlert(this IWebDriver driver)
         {
