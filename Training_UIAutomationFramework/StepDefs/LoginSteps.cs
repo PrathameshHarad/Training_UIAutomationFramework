@@ -10,18 +10,16 @@ using UIAutomationApplicationLayer.Pages;
 namespace Training_UIAutomationFramework
 {
     [Binding]
-    public class GithubLoginStepDefinitions
+    public class LoginSteps
     {
         private readonly IWebDriver driver;
         private readonly LoginPage loginPage;
-        private readonly ProductsPage productsPage;
 
-        public GithubLoginStepDefinitions(ScenarioContext scenarioContext)
+        public LoginSteps(ScenarioContext scenarioContext)
         {
             driver = (IWebDriver)scenarioContext["WebDriver"];
             log4net.Config.XmlConfigurator.Configure(new FileInfo("log4net.config"));
             loginPage = new LoginPage(driver);
-            productsPage = new ProductsPage(driver);
         }
 
         [Given("I enter username as (.*)")]
