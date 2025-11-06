@@ -8,7 +8,13 @@ namespace UIAutomation.SeleniumCore.Extensions
         public static void HoverElement(this IWebDriver driver, IWebElement element)
         {
             OpenQA.Selenium.Interactions.Actions action = new OpenQA.Selenium.Interactions.Actions(driver);
-            action.MoveToElement(element);
+            action.MoveToElement(element).Perform();
+        }
+
+        public static void MouseClick(this IWebDriver driver, IWebElement element)
+        {
+            OpenQA.Selenium.Interactions.Actions action = new OpenQA.Selenium.Interactions.Actions(driver);
+            action.Click(element).Perform();
         }
     }
 }
