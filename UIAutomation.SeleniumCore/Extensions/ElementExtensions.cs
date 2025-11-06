@@ -49,5 +49,34 @@ namespace UIAutomationApplicationLayer.Actions
             select.SelectByText(text);
         }
 
+        public static void WaitForElementVisible(this IWebDriver driver, By locator, int timeout)
+        {
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeout));
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(locator));
+        }
+
+        public static void WaitForElementVisible(this IWebDriver driver, IWebElement element, int timeout)
+        {
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeout));
+            wait.Until(
+                _ =>
+                {
+                    try
+                    {
+                        return element.Displayed;
+                    }
+                    catch (NoSuchElementException)
+                    {
+                        return false;
+                    }
+                    catch (StaleElementReferenceException)
+                    {
+                        return false;
+                    }
+                    
+                    }
+                );
+        }
+
     }
 }

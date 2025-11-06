@@ -18,7 +18,6 @@ namespace UIAutomationApplicationLayer.Pages
         // Actions
         public void ClickSaucelabsBackpackAddToCartButton()
         {
-            Thread.Sleep(10000);
             SauceLabsBackpackAddToCartButtonEle.Click();
         }
 

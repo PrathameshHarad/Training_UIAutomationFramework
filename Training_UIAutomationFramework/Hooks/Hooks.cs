@@ -64,5 +64,48 @@ namespace Training_UIAutomationFramework.Hooks
             }
             ExtentManager.FlushReport();
         }
+
+
+        [BeforeTestRun]
+        public static void BeforeTestRun()
+        {
+            //Runs once before the whole test run begins. Must be static.
+        }
+
+        [AfterTestRun]
+        public static void AfterTestRun()
+        {
+            //Runs once after the whole test run ends. Must be static.
+        }
+
+        [BeforeFeature]
+        public static void BeforeFeature()
+        {
+            //Runs before a feature starts. Must be static. Tag filtering possible.
+        }
+
+        [AfterFeature]
+        public static void AfterFeature()
+        {
+            //Runs after a feature ends. Tag filtering possible.
+        }
+
+        [BeforeScenarioBlock]
+        public void BeforeScenarioBlock()
+        {
+            //Runs before each scenario block.
+        }
+
+        [AfterScenarioBlock]
+        public void AfterScenarioBlock()
+        {
+            //Runs after each scenario block.
+        }
+
+        [BeforeStep]
+        public void BeforeStep()
+        {
+            //Runs just before each individual step.
+        }
     }
 }
