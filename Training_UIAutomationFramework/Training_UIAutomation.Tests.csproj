@@ -297,6 +297,7 @@
     <Error Condition="!Exists('..\packages\Selenium.WebDriver.4.14.1\build\Selenium.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.4.14.1\build\Selenium.WebDriver.targets'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeAnalysis.Analyzers.3.0.0\build\Microsoft.CodeAnalysis.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeAnalysis.Analyzers.3.0.0\build\Microsoft.CodeAnalysis.Analyzers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeAnalysis.Analyzers.3.0.0\build\Microsoft.CodeAnalysis.Analyzers.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeAnalysis.Analyzers.3.0.0\build\Microsoft.CodeAnalysis.Analyzers.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.MSEdgeDriver.141.0.3537.71\build\Selenium.WebDriver.MSEdgeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.MSEdgeDriver.141.0.3537.71\build\Selenium.WebDriver.MSEdgeDriver.targets'))" />
   </Target>
   <Import Project="..\packages\Reqnroll.Tools.MsBuild.Generation.3.2.0\build\Reqnroll.Tools.MsBuild.Generation.targets" Condition="Exists('..\packages\Reqnroll.Tools.MsBuild.Generation.3.2.0\build\Reqnroll.Tools.MsBuild.Generation.targets')" />
   <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.141.0.7390.12200\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.141.0.7390.12200\build\Selenium.WebDriver.ChromeDriver.targets')" />
@@ -307,4 +308,5 @@
   <Import Project="..\packages\Reqnroll.3.2.0\build\Reqnroll.targets" Condition="Exists('..\packages\Reqnroll.3.2.0\build\Reqnroll.targets')" />
   <Import Project="..\packages\Selenium.WebDriver.4.14.1\build\Selenium.WebDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.4.14.1\build\Selenium.WebDriver.targets')" />
   <Import Project="..\packages\Microsoft.CodeAnalysis.Analyzers.3.0.0\build\Microsoft.CodeAnalysis.Analyzers.targets" Condition="Exists('..\packages\Microsoft.CodeAnalysis.Analyzers.3.0.0\build\Microsoft.CodeAnalysis.Analyzers.targets')" />
+  <Import Project="..\packages\Selenium.WebDriver.MSEdgeDriver.141.0.3537.71\build\Selenium.WebDriver.MSEdgeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.MSEdgeDriver.141.0.3537.71\build\Selenium.WebDriver.MSEdgeDriver.targets')" />
 </Project>

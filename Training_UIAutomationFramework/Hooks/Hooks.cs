@@ -23,7 +23,7 @@ namespace Training_UIAutomationFramework.Hooks
         }
 
         [BeforeScenario]
-        public void BeforeScenarioWithTag()
+        public void BeforeScenario()
         {
             var factory = new DriverFactory();
             driver = factory.InitDriver();
@@ -106,6 +106,18 @@ namespace Training_UIAutomationFramework.Hooks
         public void BeforeStep()
         {
             //Runs just before each individual step.
+        }
+
+        [BeforeStep(Order =2)]
+        public void BeforeStep2()
+        {
+
+        }
+
+        [BeforeStep("@product", Order =1)]
+        public void ProductBefireStep()
+        {
+            // for prduct tag scenarios
         }
     }
 }

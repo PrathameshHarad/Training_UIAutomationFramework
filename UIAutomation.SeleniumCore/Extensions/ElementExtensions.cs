@@ -55,7 +55,7 @@ namespace UIAutomationApplicationLayer.Actions
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(locator));
         }
 
-        public static void WaitForElementVisible(this IWebDriver driver, IWebElement element, int timeout)
+        public static void WaitForElementVisible(this IWebDriver driver, IWebElement element, int timeout = 5)
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeout));
             wait.Until(
@@ -76,6 +76,17 @@ namespace UIAutomationApplicationLayer.Actions
                     
                     }
                 );
+        }
+
+        public static void WaitForElementToBeClickable(this IWebDriver driver, By locator, int timeout = 5)
+        {
+            DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(driver)
+            {
+                Timeout = TimeSpan.FromSeconds(timeout),
+                PollingInterval = TimeSpan.FromSeconds(2),
+            };
+            fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException));
+            fluentWait.Until(drv => driver.FindElement(locator));
         }
 
     }

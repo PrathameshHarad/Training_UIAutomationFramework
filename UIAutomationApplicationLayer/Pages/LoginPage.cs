@@ -25,7 +25,6 @@ namespace UIAutomationApplicationLayer.Pages
 
         public void ClickLoginButton()
         {
-            //LoginButtonEle.Click();
             LoginButtonEle.ClickUsingJS(driver);
         }
       
