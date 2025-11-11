@@ -29,9 +29,10 @@ namespace Training_UIAutomationFramework.Hooks
             var factory = new DriverFactory();
             driver = factory.InitDriver();
             scenarioContext["WebDriver"] = driver;
-            featureContext["Browser"] = ConfigurationManager.AppSettings["Browser"];
+            //featureContext["Browser"] = ConfigurationManager.AppSettings["Browser"];
             extentTest = ExtentManager.CreateTest(scenarioContext.ScenarioInfo.Title);
             scenarioContext["extentTest"] = extentTest;
+            driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl(ConfigurationManager.AppSettings["Url"]);
         }
 
