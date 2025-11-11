@@ -12,7 +12,7 @@ namespace UIAutomationApplicationLayer.Drivers
         public IWebDriver InitDriver()
         {
             var browser = ConfigurationManager.AppSettings["Browser"];
-            switch (browser)
+            switch (browser.ToLower())
             {
                 case "firefox":
                     return new FirefoxDriver();
