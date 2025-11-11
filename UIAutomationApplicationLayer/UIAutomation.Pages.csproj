@@ -250,6 +250,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\User.cs" />
     <Compile Include="Pages\BasePage.cs" />
     <Compile Include="Pages\CartPage.cs" />
     <Compile Include="Pages\CheckoutPage.cs" />

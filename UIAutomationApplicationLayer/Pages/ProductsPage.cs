@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using System.Threading;
 using UIAutomation.SeleniumCore.Actions;
+using UIAutomation.SeleniumCore.Utils;
 using UIAutomationApplicationLayer.Actions;
 
 namespace UIAutomationApplicationLayer.Pages
@@ -18,7 +19,15 @@ namespace UIAutomationApplicationLayer.Pages
         // Actions
         public void ClickSaucelabsBackpackAddToCartButton()
         {
-            SauceLabsBackpackAddToCartButtonEle.Click();
+            try
+            {
+                SauceLabsBackpackAddToCartButtonEle.Click();
+            }
+            catch
+            {
+                throw new CustomException("Exception found");
+            }
+            
         }
 
         public string GetSaucelabsBackpackItemPrice()

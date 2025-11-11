@@ -14,7 +14,8 @@ namespace Training_UIAutomationFramework.Hooks
     public sealed class Hooks
     {
         private IWebDriver driver;
-        private readonly ScenarioContext scenarioContext;
+        private readonly ScenarioContext scenarioContext; //limited to single scenario
+        private readonly FeatureContext featureContext; //shared with all scenario
         private static ExtentTest extentTest;
 
         public Hooks(ScenarioContext scenarioContext)
@@ -28,6 +29,7 @@ namespace Training_UIAutomationFramework.Hooks
             var factory = new DriverFactory();
             driver = factory.InitDriver();
             scenarioContext["WebDriver"] = driver;
+            featureContext["Browser"] = ConfigurationManager.AppSettings["Browser"];
             extentTest = ExtentManager.CreateTest(scenarioContext.ScenarioInfo.Title);
             scenarioContext["extentTest"] = extentTest;
             driver.Navigate().GoToUrl(ConfigurationManager.AppSettings["Url"]);

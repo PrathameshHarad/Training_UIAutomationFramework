@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using UIAutomation.SeleniumCore.Actions;
 using UIAutomationApplicationLayer.Actions;
+using UIAutomationApplicationLayer.Models;
 
 namespace UIAutomationApplicationLayer.Pages
 {

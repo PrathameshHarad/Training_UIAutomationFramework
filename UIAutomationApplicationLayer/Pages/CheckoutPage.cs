@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UIAutomation.SeleniumCore.Actions;
 using UIAutomationApplicationLayer.Actions;
+using UIAutomationApplicationLayer.Models;
 
 namespace UIAutomationApplicationLayer.Pages
 {
@@ -48,6 +49,14 @@ namespace UIAutomationApplicationLayer.Pages
         public void clickFinishButton()
         {
             FinishButtonEle.Click();
+        }
+
+        public static void LogInToWebsite(string firstName, string lastName, string postalCode)
+        {
+            User user = new UserBuilder()
+                .WithFirstName(firstName)
+                .WithLastName(lastName)
+                .WithPostalCode(postalCode).Build();
         }
     }
 }
